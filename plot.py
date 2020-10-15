@@ -3,9 +3,9 @@ import pandas as pd
 import seaborn as sns
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 
-FIGSIZE = (16, 9)
-FONT = {"family": "Share Tech Mono", "weight": "normal", "size": 16}
-tds = "#0073b1"
+FIGSIZE = (20,20)
+FONT = {"family": "DejaVu Sans", "weight": "normal", "size": 20}
+tds = "#0072b1"
 week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
 
@@ -16,12 +16,16 @@ def plot_weekly_connection(df):
 
     plt.plot(weekly.index, weekly.added, c=tds)
 
-    plt.title("LinkedIn connections evolution", fontdict=FONT, y=1.2)
+    plt.title("LinkedIn connections evolution", fontdict=FONT)
     plt.ylabel("Nb weekly connections", fontdict=FONT)
+    plt.xticks(fontsize= 20)
+    plt.yticks(fontsize= 20)
 
     ax.set_frame_on(False)
     plt.grid(True)
+    plt.savefig("x.pdf",bbox_inches='tight')
     plt.show()
+    
 
 
 def plot_cumsum(df):
@@ -31,11 +35,14 @@ def plot_cumsum(df):
 
     plt.plot(cumsum.index, cumsum.values, c=tds)
 
-    plt.title("LinkedIn connections evolution (cumulated)", fontdict=FONT, y=1.2)
+    plt.title("LinkedIn connections evolution (cumulated)", fontdict=FONT)
     plt.ylabel("Nb connections", fontdict=FONT)
+    plt.xticks(fontsize= 20)
+    plt.yticks(fontsize= 20)
 
     ax.set_frame_on(False)
     plt.grid(True)
+    plt.savefig("x.pdf",bbox_inches='tight')
     plt.show()
 
 
@@ -48,15 +55,18 @@ def violins_prep(tmp):
 def plot_violins(df):
     violins = violins_prep(df[["added"]])
 
-    fig, ax = plt.subplots(figsize=(20, 8))
+    fig, ax = plt.subplots(figsize=FIGSIZE)
     ax = sns.violinplot(x="dow_str", y="added", data=violins, color=tds, cut=0, ax=ax)
 
-    plt.title("LinkedIn connections distribution per day of week", fontdict=FONT, y=1.2)
+    plt.title("LinkedIn connections distribution per day of week", fontdict=FONT)
     plt.xlabel("Week day", fontdict=FONT)
     plt.ylabel("Nb daily connections", fontdict=FONT)
+    plt.xticks(fontsize= 20)
+    plt.yticks(fontsize= 20)
 
     ax.set_frame_on(False)
     plt.grid(True)
+    plt.savefig("x.pdf",bbox_inches='tight')
     plt.show()
 
 
@@ -90,7 +100,7 @@ def plot_fnames(fnames, col, index="index"):
         alpha=0.5
     )
 
-    plt.title("{} distribution".format(col), fontdict=FONT, y=1.2)
+    plt.title("{} distribution".format(col), fontdict=FONT)
     plt.xticks(
         fnames.index,
         fnames[index].str.capitalize(),
@@ -100,9 +110,9 @@ def plot_fnames(fnames, col, index="index"):
     )
 
     plt.ylabel("Nb occurences", fontdict=FONT)
-    plt.yticks()#[0, 5, 10, 15, 20])
+    plt.yticks(fontsize= 20)#[0, 5, 10, 15, 20])
     ax.set_frame_on(False)
     plt.grid(True)
-
+    plt.savefig("x.pdf",bbox_inches='tight')
     plt.show()
 
