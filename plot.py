@@ -23,7 +23,7 @@ def plot_weekly_connection(df):
 
     ax.set_frame_on(False)
     plt.grid(True)
-    plt.savefig("x.pdf",bbox_inches='tight')
+    #plt.savefig("x.pdf",bbox_inches='tight')
     plt.show()
     
 
@@ -42,7 +42,7 @@ def plot_cumsum(df):
 
     ax.set_frame_on(False)
     plt.grid(True)
-    plt.savefig("x.pdf",bbox_inches='tight')
+    #plt.savefig("x.pdf",bbox_inches='tight')
     plt.show()
 
 
@@ -66,7 +66,7 @@ def plot_violins(df):
 
     ax.set_frame_on(False)
     plt.grid(True)
-    plt.savefig("x.pdf",bbox_inches='tight')
+    #plt.savefig("x.pdf",bbox_inches='tight')
     plt.show()
 
 
@@ -113,6 +113,6 @@ def plot_fnames(fnames, col, index="index"):
     plt.yticks(fontsize= 20)#[0, 5, 10, 15, 20])
     ax.set_frame_on(False)
     plt.grid(True)
-    plt.savefig("x.pdf",bbox_inches='tight')
+    #plt.savefig("x.pdf",bbox_inches='tight')
     plt.show()
 

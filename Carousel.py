@@ -160,7 +160,7 @@ file = 'Connections.csv'
 # In[3]:
 
 
-df = pd.read_csv(f'{path}{file}')
+df = pd.read_csv(f'{path}{file}',encoding = "ISO-8859-1")
 df['Connected On'] = pd.to_datetime(df['Connected On'])
 df.set_index('Connected On', inplace=True, drop=True)
 df.sort_index(inplace=True)
@@ -184,6 +184,7 @@ p1 = plot_weekly_connection(df)
 
 
 # In[6]:
+#ok
 
 
 p2 = plot_cumsum(df)
@@ -200,7 +201,7 @@ p3 = plot_violins(df)
 # In[8]:
 
 
-p4 = plot_bar_column(df, "First Name")
+p4 = plot_bar_column(df, "De-Identified First Name")
 
 
 # #### Let's now plot where my contacts works the most
